@@ -23,7 +23,7 @@
     "build:docs": "cross-env NODE_ENV=production webpack --config config/webpack.config.docs.js --progress --hide-modules",
     "prepublish": "npm run build",
     "deploy": "npm run gh-pages",
-    "gh-pages": "gh-pages -d gh-pages -b gh-pages"
+    "gh-pages": "gh-pages -d gh-pages/dist -b gh-pages"
   },
   "repository": {
     "type": "git",

@@ -3,14 +3,13 @@
 
     <div ref="quillContainer" id="quill-container">{{editorContent}}</div>
 
-    <slot name="saveButton">
       <button class="save-button"
         v-if="useSaveButton"
         @click="saveContent">
         <slot name="buttonText">Save Content</slot>
         <!-- {{ buttonText ? buttonText : 'Save Content' }} -->
       </button>
-    </slot>
+
     <div v-if="showPreview" ref="livePreview" class="ql-editor"></div>
 
   </div>
