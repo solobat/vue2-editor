@@ -1,7 +1,7 @@
 <template>
   <div id="quillWrapper">
 
-      <div ref="quillContainer" id="quill-container" v-html="editorContent"></div>
+      <div ref="quillContainer" id="quill-container"></div>
 
       <button v-if="useSaveButton" class="save-button"
         @click="saveContent">
@@ -96,7 +96,7 @@ export default {
 
   watch: {
     editorContent: function () {
-      this.editor.innerHTML = this.editorContent
+      this.quill.setText(editorContent);
     }
   },
 
