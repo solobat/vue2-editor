@@ -7,9 +7,6 @@
         @click="saveContent">
         {{ buttonText ? buttonText : 'Save Content' }}
       </button>
-
-      <div v-if="showPreview" ref="livePreview" class="ql-editor"></div>
-
   </div>
 </template>
 
@@ -44,15 +41,7 @@ export default {
     editorToolbar: Array,
     useSaveButton: {
       type: Boolean,
-      default () {
-        return true
-      }
-    },
-    showPreview: {
-      type: Boolean,
-      default () {
-        return false
-      }
+      default: true
     }
   },
 
@@ -77,21 +66,9 @@ export default {
 
     vm.editor = document.querySelector('.ql-editor')
 
-
-    if ( vm.$refs.livePreview !== undefined || false ) {
-
-      vm.quill.on('text-change', function() {
-        vm.$refs.livePreview.innerHTML = vm.editor.innerHTML
-        vm.$emit('editor-updated', vm.editor.innerHTML)
-      });
-
-    } else {
-
-      vm.quill.on('text-change', function() {
-        vm.$emit('editor-updated', vm.editor.innerHTML)
-      });
-
-    }
+    vm.quill.on('text-change', function() {
+      vm.$emit('editor-updated', vm.editor.innerHTML)
+    });
   },
 
   watch: {
